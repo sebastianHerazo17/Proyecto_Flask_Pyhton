@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Aplicación de Predicción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            background-image: url(https://maraton.unicordoba.edu.co/pluginfile.php/1/theme_moove/sliderimage1/1683057592/fondo.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+        .container {
+            width: 60%;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            opacity: 1;
+        }
+        h1 {
+            font-size: 48px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            margin-top: 40px;
+        }
+        .button {
+            position: relative;
+            background-color: #4CAF50;
+            border: none;
+            font-size: 28px;
+            color: #FFFFFF;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .button:after {
+            content: "";
+            background: #90EE90;
+            display: block;
+            position: absolute;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .button:active:after {
+            padding: 0;
+            margin: 0;
+            transition: 0s
+        }
+        .fade-in {
+            animation: fade-in 1s ease-in-out;
+        }
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var container = document.querySelector(".container");
+            container.classList.add("fade-in");
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-size:2.5em;">Proyecto de analis de competencias laborales en ingeniería de sistemas</h1>
+        <p>Luego de explorar vacantes para egresados de la universidad de Córdoba en ingeniería de sistemas, hemos observado una disparidad entre las áreas requeridas en el mercado laboral y las especializaciones de los estudiantes. Esta discrepancia plantea un problema significativo, ya que muchos estudiantes se enfocan en áreas específicas sin considerar las demandas reales de las empresas.</p>
+        <p>En este proyecto, recopilamos información de las vacantes publicadas por las empresas y realizamos encuestas a los egresados de ingeniería de sistemas para evaluar los conocimientos que poseen en comparación con los requisitos laborales más solicitados. Con estos datos, podemos predecir la probabilidad de empleo de los estudiantes actuales y evaluar la preparación de los mismos en relación a las demandas del mercado laboral.</p>
+        <p>Nuestro objetivo es proporcionar a las instituciones educativas y a los estudiantes una visión clara de las habilidades necesarias para tener éxito en el mercado laboral. Esta información puede utilizarse para actualizar los programas académicos y brindar una formación más completa y alineada con las necesidades de las empresas.</p>
+        <div class="button-container" style="display: flex; flex-direction: row;justify-content: space-between;">
+            <a class="button" href="/login">Iniciar Sesión</a>
+            <a class="button" href="/formulario">Evaluar</a>
+        </div>
+    </div>
+</body>
+</html>

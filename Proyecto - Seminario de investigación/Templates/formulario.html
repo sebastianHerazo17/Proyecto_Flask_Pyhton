@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+    <meta charset="utf-8">
+    <title>Proyecto Seminario de Investigación</title>
+    <link href="style.css" rel="stylesheet" >
+    <style>
+        body {
+            background-color: #f2f2f2;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+        
+        h1 {
+            color: #666666;
+        }
+        
+        .form-container {
+            margin-top: 0;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        select {
+            margin-bottom: 20px;
+        }
+        h3{
+            margin: 30px;
+        }
+        .cont {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <h1>Bienvenido {{ session['username'] }}!</h1>
+    <div style="margin-top: 25px; margin-bottom: 25px;">En este formulario vas a elegir con una opción si para las competencias que sepas<br> y no para las competencias que aún no manejas.<br></div>
+    <div class="form-container">
+        <form method="POST" action="/formulario">
+            <div class="cont"> 
+                <div class="tipos">
+                    <h3>Desarrollo</h3>
+                    <div class="form-group">
+                        <label for="java">¿Sabe Java?</label>
+                        <select id="java" name="java">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="python">¿Sabe Python?</label>
+                        <select id="python" name="python">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nodejs">¿Sabe Node.js?</label>
+                        <select id="nodejs" name="nodejs">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="php">¿Sabe PHP?</label>
+                        <select id="php" name="php">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reactjs">¿Sabe React.js?</label>
+                        <select id="reactjs" name="reactjs">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="javascript">¿Sabe JavaScript?</label>
+                        <select id="javascript" name="javascript">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="json">¿Sabe Json?</label>
+                        <select id="json" name="json">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="angular">¿Sabe Angular?</label>
+                        <select id="angular" name="angular">
+                        <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="csharp">¿Sabe C#?</label>
+                        <select id="csharp" name="csharp">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cplusplus">¿Sabe C++?</label>
+                        <select id="cplusplus" name="cplusplus">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="desarrolloFrontEnd">¿Sabe Desarrollo front end?</label>
+                        <select id="desarrolloFrontEnd" name="desarrolloFrontEnd">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="desarrolloWebBackEnd">¿Sabe Desarrollo web back end?</label>
+                        <select id="desarrolloWebBackEnd" name="desarrolloWebBackEnd">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="css">¿Sabe Hojas de estilos en cascada (CSS)?</label>
+                        <select id="css" name="css">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="html5">¿Sabe HTML5?</label>
+                        <select id="html5" name="html5">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="tipos">
+                    <h3>Uso y manejo de Datos</h3>
+                    <div class="form-group">
+                    <label for="aws">¿Sabe AWS?</label>
+                    <select id="aws" name="aws">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="basesDeDatos">¿Sabe Bases de datos?</label>
+                    <select id="basesDeDatos" name="basesDeDatos">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="capacidadDeAnalisis">¿Tiene Capacidad de análisis?</label>
+                    <select id="capacidadDeAnalisis" name="capacidadDeAnalisis">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                        <label for="cienciaDeDatos">¿Sabe Ciencia de datos?</label>
+                        <select id="cienciaDeDatos" name="cienciaDeDatos">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tipos">
+                    <h3> Habilidades Blandas o Conocimientos generales</h3>
+                    <div class="form-group">
+                        <label for="colaboracion">¿Tiene habilidad para la Colaboración?</label>
+                        <select id="colaboracion" name="colaboracion">
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="comunicacion">¿Tiene habilidad para la Comunicación?</label>
+                    <select id="comunicacion" name="comunicacion">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="inglesB1">¿Tiene nivel de Inglés B1 o más?</label>
+                    <select id="inglesB1" name="inglesB1">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="liderazgo">¿Tiene habilidad de Liderazgo?</label>
+                    <select id="liderazgo" name="liderazgo">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodologiasAgiles">¿Sabe Metodologias Agiles?</label>
+                        <select id="metodologiasAgiles" name="metodologiasAgiles">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="proactividad">¿Tiene Proactividad?</label>
+                    <select id="proactividad" name="proactividad">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="trabajoEnEquipo">¿Tiene habilidad para el Trabajo en equipo?</label>
+                    <select id="trabajoEnEquipo" name="trabajoEnEquipo">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Realizar evaluación">
+                </div>
+            </div>
+         </form>
+         
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,89 @@
+<style>
+
+    * {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .navbar {
+        background-color: #6ad13c;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .navbar-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-link {
+        margin-left: 15px;
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-link:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    function confirmLogout() {
+        var Logout = confirm("¿Estás seguro de que deseas cerrar sesión?");
+        if (Logout) {
+            window.location.href = "/logout";
+        }
+    }
+</script>
+
+<nav class="navbar">
+    <div class="navbar-container">
+        {% if session['authenticated']%}
+        <a href="/dashboard">
+            <img src="https://campusvirtual.unicordoba.edu.co/pregrado/pluginfile.php/1/theme_mb2nl/logo/1683208718/unicordoba_logo.png" alt="">
+        </a>
+        {% else %}
+        <a href="/">
+            <img src="https://campusvirtual.unicordoba.edu.co/pregrado/pluginfile.php/1/theme_mb2nl/logo/1683208718/unicordoba_logo.png" alt="">
+        </a>
+        {% endif %}
+        <ul class="navbar-links">
+            {% if session['authenticated'] %}
+            <li>
+                <a href="/" class="navbar-link" onclick="confirmLogout()">CERRAR SESIÓN</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/login" class="navbar-link">Iniciar Sesión</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+

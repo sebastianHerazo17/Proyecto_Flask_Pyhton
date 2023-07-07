@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tabla de Habilidades y Vacantes</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+{% include 'nav.html' %}
+<h1 style="text-align: center; background-color: #6ad13c; border-color: gray; margin-top: 1px;">Tabla de Competencias y Vacantes</h1>
+<body >
+    <div style="text-align: center; background-color: #9ad775; width: 60%; margin-top: 25px; margin-left: 20%; margin-bottom: 25px;">Esta tabla contiene las competencias que solicitan las empresas según el estudio realizado,<br>
+     en base a ese estudio, se encuestó egresados de la Universidad de Córdoba en lo cual se realizó<br>
+     este registro para saber cuantos de ellos cuentan con la competencia solicitada.
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Competencia</th>
+                <th>Cantidad de Vacantes</th>
+                <th>Personas Calificadas</th>
+                <th>Déficit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for habilidad, datos in resultados.items() %}
+            <tr>
+                <td>{{ habilidad }}</td>
+                <td>{{ datos.vacantes }}</td>
+                <td>{{ datos.personas }}</td>
+                <td>{{datos.deficit}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

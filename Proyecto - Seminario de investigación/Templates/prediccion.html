@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Proyecto Seminario de Investigación</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        .mensaje {
+            margin: 0 auto;
+            width: 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <h1>Proyecto Seminario de Investigación</h1>
+    <div class="mensaje" style="margin-top: 70px; width: 40%; height: 300px; display: flex; flex-direction: column; justify-content: space-evenly;">
+        <h2>Resultado de la Evaluación</h2>
+        <p>{{ mensaje }}</p>
+        <div class="form-group">
+            <a href="/formulario" type="submit">Volver a Formulario</a>
+        </div>
+    </div>
+</body>
+</html>

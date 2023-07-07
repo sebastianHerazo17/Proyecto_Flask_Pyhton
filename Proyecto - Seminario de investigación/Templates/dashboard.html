@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+       
+        .card {
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: #f1f1f1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover{
+            background-color: #329145;
+            cursor: pointer;
+        }
+
+        .admin-card {
+            background-color: #aff091;
+        }
+
+        .coordinator-card {
+            background-color: #aff091;
+        }
+        .container {
+            width: 70em;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+{% include 'nav.html' %}
+<body>
+    
+    <h1 style="text-align: center; border-top: 1px; border-color: gray; background-color: #6ad13c; margin-top: 1px;">Dashboard</h1>
+
+    {% if session['role'] == 'Administrador' %}
+        <div class="container" style="margin-top: 70px;">
+            <div class="card admin-card" onclick="location.href = '/analisis'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>home-analytics</title><path d="M12,3L2,12H5V20H19V12H22M9,18H7V12H9M13,18H11V10H13M17,18H15V14H17" /></svg>
+                <h2>Ver Análisis</h2>
+            </div>
+
+            <div class="card admin-card"  onclick="location.href = '/tabla_habilidades'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>table</title><path d="M5,4H19A2,2 0 0,1 21,6V18A2,2 0 0,1 19,20H5A2,2 0 0,1 3,18V6A2,2 0 0,1 5,4M5,8V12H11V8H5M13,8V12H19V8H13M5,14V18H11V14H5M13,14V18H19V14H13Z" /></svg>
+                <h2>Ver Registros</h2>
+            </div>
+            <div class="card admin-card" onclick="location.href = '/formulario'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>form-select</title><path d="M15 5H18L16.5 7L15 5M5 2H19C20.11 2 21 2.9 21 4V20C21 21.11 20.11 22 19 22H5C3.9 22 3 21.11 3 20V4C3 2.9 3.9 2 5 2M5 4V8H19V4H5M5 20H19V10H5V20M7 12H17V14H7V12M7 16H17V18H7V16Z" /></svg>
+                <h2>Realizar Formulario</h2>
+            </div>
+        
+            <div class="card admin-card" onclick="location.href = '/cargar_csv'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>database-arrow-up</title><path d="M19 13C16.83 13 14.93 14.16 13.88 15.89C13.28 15.96 12.65 16 12 16C7.58 16 4 14.21 4 12V9C4 11.21 7.58 13 12 13S20 11.21 20 9V12C20 12.36 19.9 12.71 19.72 13.05C19.5 13 19.24 13 19 13M12 11C16.42 11 20 9.21 20 7S16.42 3 12 3 4 4.79 4 7 7.58 11 12 11M13.1 17.96C12.74 18 12.37 18 12 18C7.58 18 4 16.21 4 14V17C4 19.21 7.58 21 12 21C12.46 21 12.9 21 13.33 20.94C13.12 20.33 13 19.68 13 19C13 18.64 13.04 18.3 13.1 17.96M19 15L16 18H18V22H20V18H22L19 15Z" /></svg>
+                <h2>Agregar o actualizar dataset</h2>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+    {% if session['role'] == 'Coordinador' %}
+        <div class="container" style="margin-top: 100px;">
+            <div class="card coordinator-card" onclick="location.href = '/formulario'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>form-select</title><path d="M15 5H18L16.5 7L15 5M5 2H19C20.11 2 21 2.9 21 4V20C21 21.11 20.11 22 19 22H5C3.9 22 3 21.11 3 20V4C3 2.9 3.9 2 5 2M5 4V8H19V4H5M5 20H19V10H5V20M7 12H17V14H7V12M7 16H17V18H7V16Z" /></svg>
+                <h2>Realizar Formulario</h2>
+            </div>
+
+            <div class="card coordinator-card" onclick="location.href = '/cargar_csv'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>database-arrow-up</title><path d="M19 13C16.83 13 14.93 14.16 13.88 15.89C13.28 15.96 12.65 16 12 16C7.58 16 4 14.21 4 12V9C4 11.21 7.58 13 12 13S20 11.21 20 9V12C20 12.36 19.9 12.71 19.72 13.05C19.5 13 19.24 13 19 13M12 11C16.42 11 20 9.21 20 7S16.42 3 12 3 4 4.79 4 7 7.58 11 12 11M13.1 17.96C12.74 18 12.37 18 12 18C7.58 18 4 16.21 4 14V17C4 19.21 7.58 21 12 21C12.46 21 12.9 21 13.33 20.94C13.12 20.33 13 19.68 13 19C13 18.64 13.04 18.3 13.1 17.96M19 15L16 18H18V22H20V18H22L19 15Z" /></svg>
+                <h2>Agregar o actualizar Data Set</h2>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>

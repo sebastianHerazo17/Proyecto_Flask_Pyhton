@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Análisis</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+    * {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .li1 {
+            width: 25%;
+            height: 150px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: #f1f1f1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .ul1 {
+            width: 70em;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+</style>
+</head>
+<body style="background-color: rgb(241, 237, 237);">
+    {% include ('nav.html')%}
+    <h1 style="text-align: center; border-top: 1px; border-color: rgb(230, 224, 224); background-color: #6ad13c; margin-top: 1px;">Análisis de Competencias</h1>
+    <div class="container1">
+        <ul class="ul1">
+            {% for resultado in resultados %}
+                <li class="li1">{{ resultado }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
